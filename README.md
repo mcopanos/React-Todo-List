@@ -23,5 +23,5 @@ npm intall
 npm run dev 
 
 ```
-This will install the needed dependencies for your new project.\ 
+This will install the needed dependencies for your new project.<br>
 Enjoy!
