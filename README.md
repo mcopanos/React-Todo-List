@@ -12,9 +12,10 @@ Currently, two official plugins are available:
 If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
 
 # Install 
-## You can clone this and use it to start your own project 
-To run this project on your machine you must have `Node.js` installed on your machine as well as `NPM`. 
-Just simply use `git clone` and paste the link in your terminal on your local machine.
+## You can fork this template to use it on your own project 
+
+To run this project on your machine you must have `Node.js` installed on your machine as well as `NPM`.\
+Just `fork` the project and use `git clone` + link to project in your terminal on your local machine.
 
 Run the following commands after cloning project. 
 ```
@@ -22,5 +23,5 @@ npm intall
 npm run dev 
 
 ```
-This will install the needed dependencies for your new project. 
+This will install the needed dependencies for your new project.\ 
 Enjoy!
