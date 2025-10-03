@@ -1,14 +1,17 @@
-import './App.css'
+import { useState } from 'react';
+import CreateList from './components/CreateList';
+import ListForm from './components/ListForm';
 
-function App() {
+export default function App() {
+  const [isToggled, setIsToggled] = useState(false)
+
+  function handleClick() {
+    setIsToggled(!isToggled);
+  }
 
   return (
     <>
-      <div className='text-center'>
-        <h1 className='text-emerald-100'>React and Tailwind CSS Template</h1>
-      </div>
+      { isToggled ? <ListForm onClick={handleClick} /> : <CreateList onClick={handleClick} /> }
     </>
-  )
+  );
 }
-
-export default App
