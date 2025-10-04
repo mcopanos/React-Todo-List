@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Todos from "./Todos";
 
 let nextId = 0;
 
@@ -47,20 +48,9 @@ export default function ListForm() {
                 </div>
             </div>
             {todos.length > 0 &&
-                // <div className="list-form mx-auto flex max-w-xl items-center gap-x-4 rounded-xl p-6 shadow-lg dark:bg-white/6 dark:shadow-2xl">
-                    <ul className="w-xl h-full flex flex-col gap-3 mx-auto">
-                        {todos.map(todo => (
-                            <div className="flex justify-between w-full p-6 rounded-xl shadow-lg dark:bg-white/6 dark:shadow-2xl">
-                                <input type="radio" />
-                                <li key={todo.id} className="text-xl capitalize">
-                                    { todo.name }
-                                </li>
-                                <button className='bg-violet-500 hover:bg-violet-600 focus:outline-2 focus:outline-offset-2 focus:outline-violet-500 active:bg-violet-700 rounded-sm w-18 h-10'>Edit</button>
-                            </div>
-                            ))
-                        }
-                    </ul>
-                // </div>
+                <Todos 
+                    todos={todos}
+                /> 
             }  
         </div>
     );
