@@ -8,7 +8,7 @@ export default function ListForm() {
     const [todos, setTodos] = useState([]);
 
     function handleInput(e) {
-        if(e.target.value !== "") {
+        if(e.target.value !== " ") {
             setInput(e.target.value);
         }
     }
