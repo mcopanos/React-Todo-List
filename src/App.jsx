@@ -11,7 +11,7 @@ export default function App() {
 
   return (
     <>
-      { isToggled ? <ListForm onClick={handleClick} /> : <CreateList onClick={handleClick} /> }
+      { isToggled ? <ListForm /> : <CreateList onClick={handleClick} /> }
     </>
   );
 }

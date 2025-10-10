@@ -1,5 +1,4 @@
 import { useState } from "react";
-import Todos from "./Todos";
 
 let nextId = 0;
 
@@ -21,9 +20,17 @@ export default function ListForm() {
 
     function handleSubmit() {
         if(input) {
-            setTodos([...todos, { id: nextId++, name: input}]);
+            setTodos([...todos, { id: nextId++, name: input, isComplete: false}]);
             setInput('');
         }
+    }
+
+    function toggleTodo(id) {
+        setTodos((prevTodos) =>
+            prevTodos.map((todo) =>
+                todo.id === id ? { ...todo, isComplete: !todo.isComplete } : todo
+            )
+        );
     }
 
     return(
@@ -48,9 +55,21 @@ export default function ListForm() {
                 </div>
             </div>
             {todos.length > 0 &&
-                <Todos 
-                    todos={todos}
-                /> 
+                <ul className="w-xl h-full flex flex-col gap-3 mx-auto">
+                    {todos.map(todo => (
+                            <li key={todo.id} className="flex justify-between w-full p-6 rounded-xl shadow-lg dark:bg-white/6 dark:shadow-2xl text-xl capitalize">
+                                <input 
+                                    type="checkbox" 
+                                    name={todo.name} 
+                                    value={todo.name} 
+                                    onChange={() => toggleTodo(todo.id)}
+                                /> 
+                                <p className={todo.isComplete ? 'line-through' : undefined}>{ todo.name }</p> 
+                                <button className='bg-violet-500 hover:bg-violet-600 focus:outline-2 focus:outline-offset-2 focus:outline-violet-500 active:bg-violet-700 rounded-sm w-18 h-10'>Edit</button>
+                            </li>
+                        ))
+                    }
+                </ul>
             }  
         </div>
     );
