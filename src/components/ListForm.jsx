@@ -62,10 +62,13 @@ export default function ListForm() {
                                     type="checkbox" 
                                     name={todo.name} 
                                     value={todo.name} 
-                                    onChange={() => toggleTodo(todo.id)}
+                                    onClick={() => toggleTodo(todo.id, todo.isComplete)}
                                 /> 
                                 <p className={todo.isComplete ? 'line-through' : undefined}>{ todo.name }</p> 
-                                <button className='bg-violet-500 hover:bg-violet-600 focus:outline-2 focus:outline-offset-2 focus:outline-violet-500 active:bg-violet-700 rounded-sm w-18 h-10'>Edit</button>
+                                <button 
+                                    className='bg-violet-500 hover:bg-violet-600 focus:outline-2 focus:outline-offset-2 focus:outline-violet-500 active:bg-violet-700 rounded-sm w-18 h-10'
+                                    onClick={() => setTodos(todos.filter((t) =>t.isComplete ? t.id !== todo.id : todo))}
+                                >Delete</button>
                             </li>
                         ))
                     }
