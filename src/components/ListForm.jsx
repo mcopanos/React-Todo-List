@@ -67,7 +67,7 @@ export default function ListForm() {
                                 <p className={todo.isComplete ? 'line-through' : undefined}>{ todo.name }</p> 
                                 <button 
                                     className='bg-violet-500 hover:bg-violet-600 focus:outline-2 focus:outline-offset-2 focus:outline-violet-500 active:bg-violet-700 rounded-sm w-18 h-10'
-                                    onClick={() => setTodos(todos.filter((t) =>t.isComplete ? t.id !== todo.id : todo))}
+                                    onClick={() => setTodos(todos.filter((t) =>  t.id !== todo.id ))}
                                 >Delete</button>
                             </li>
                         ))
