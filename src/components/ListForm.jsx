@@ -20,7 +20,7 @@ export default function ListForm() {
 
     function handleSubmit() {
         if(input) {
-            setTodos([...todos, { id: nextId++, name: input, isComplete: false}]);
+            setTodos([...todos, { id: nextId++, name: input, isComplete: false, dblClick: false}]);
             setInput('');
         }
     }
@@ -31,6 +31,26 @@ export default function ListForm() {
                 todo.id === id ? { ...todo, isComplete: !todo.isComplete } : todo
             )
         );
+    }
+
+    function handleDblClick(id) {
+        setTodos((prevTodos) =>
+            prevTodos.map((todo) =>
+                todo.id === id ? { ...todo, dblClick: !todo.dblClick } : todo
+            )
+        );
+    }
+
+    function editTodo(e, id) {
+        if (e.target.value && e.key === "Enter") {
+            setTodos((prevTodos) =>
+                prevTodos.map((todo) =>
+                todo.id === id
+                    ? { ...todo, name: e.target.value, dblClick: !todo.dblClick }
+                    : todo
+                )
+            );
+        }
     }
 
     return(
@@ -64,7 +84,17 @@ export default function ListForm() {
                                     value={todo.name} 
                                     onClick={() => toggleTodo(todo.id, todo.isComplete)}
                                 /> 
-                                <p className={todo.isComplete ? 'line-through' : undefined}>{ todo.name }</p> 
+                                <div onDoubleClick={() => handleDblClick(todo.id)} className="cursor-pointer" title="Double click to edit">
+                                {!todo.dblClick 
+                                    ?<p className={todo.isComplete ? 'line-through' : undefined}>{ todo.name }</p> 
+                                    :<input 
+                                        type="text"
+                                        placeholder={todo.name}
+                                        onKeyDown={(e) => editTodo(e, todo.id)}
+                                        autoFocus
+                                    />
+                                }
+                                </div>
                                 <button 
                                     className='bg-violet-500 hover:bg-violet-600 focus:outline-2 focus:outline-offset-2 focus:outline-violet-500 active:bg-violet-700 rounded-sm w-18 h-10'
                                     onClick={() => setTodos(todos.filter((t) =>  t.id !== todo.id ))}
