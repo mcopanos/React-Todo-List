@@ -77,14 +77,14 @@ export default function ListForm() {
             {todos.length > 0 &&
                 <ul className="w-xl h-full flex flex-col gap-3 mx-auto">
                     {todos.map(todo => (
-                            <li key={todo.id} className="flex justify-between w-full p-6 rounded-xl shadow-lg dark:bg-white/6 dark:shadow-2xl text-xl capitalize">
+                            <li key={todo.id} className="flex justify-between self-center w-full p-6 rounded-xl shadow-lg dark:bg-white/6 dark:shadow-2xl text-xl capitalize">
                                 <input 
                                     type="checkbox" 
                                     name={todo.name} 
                                     value={todo.name} 
                                     onClick={() => toggleTodo(todo.id, todo.isComplete)}
                                 /> 
-                                <div onDoubleClick={() => handleDblClick(todo.id)} className="cursor-pointer" title="Double click to edit">
+                                <div onDoubleClick={() => handleDblClick(todo.id)} className="flex self-center cursor-pointer" title="Double click to edit">
                                 {!todo.dblClick 
                                     ?<p className={todo.isComplete ? 'line-through' : undefined}>{ todo.name }</p> 
                                     :<input 
