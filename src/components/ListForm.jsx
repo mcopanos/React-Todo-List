@@ -86,7 +86,7 @@ export default function ListForm() {
                                 {!todo.dblClick 
                                     ?<p className={todo.isComplete ? 'line-through' : undefined}>{ todo.name }</p> 
                                     :<textarea 
-                                        className="max-h-[20px] resize-none text-center outline-none overflow-hidden"
+                                        className="resize-none text-center outline-none overflow-hidden"
                                         autoFocus
                                         type="text"
                                         name="textarea"
