@@ -58,14 +58,14 @@ export default function ListForm() {
         <div className="flex flex-wrap gap-2">
             <div className="flex flex-col justify-evenly h-85 mx-auto w-xl items-center rounded-xl p-6 shadow-lg dark:bg-white/6 dark:shadow-2xl">
                 <h2>Add Todos</h2>
-                <div className="w-full flex justify-evenly"> 
+                <div className="w-full flex flex-wrap justify-evenly gap-2"> 
                     <Input 
                         value={input}
                         change={handleInput}
                         keyDown={handleKeyPress}
                     />
                     <button 
-                        className='bg-violet-500 hover:bg-violet-600 focus:outline-2 focus:outline-offset-2 focus:outline-violet-500 active:bg-violet-700 rounded-sm w-35 h-15'
+                        className='bg-violet-500 hover:bg-violet-600 focus:outline-2 focus:outline-offset-2 focus:outline-violet-500 active:bg-violet-700 rounded-sm h-15 w-xs md:w-35'
                         onClick={handleSubmit}
                     > 
                         Send It!
