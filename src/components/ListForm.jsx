@@ -75,7 +75,7 @@ export default function ListForm() {
             {todos.length > 0 &&
                 <ul className="w-xl h-full flex flex-col gap-3 mx-auto">
                     {todos.map(todo => (
-                            <li key={todo.id} className="flex justify-between items-center w-full p-6 rounded-xl shadow-lg dark:bg-white/6 dark:shadow-2xl text-xl capitalize">
+                            <li key={todo.id} className="flex justify-between items-center w-full p-6 rounded-xl shadow-lg dark:bg-white/6 dark:shadow-2xl text-lg capitalize">
                                 <input 
                                     type="checkbox" 
                                     name={todo.name} 
